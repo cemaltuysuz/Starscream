@@ -29,8 +29,14 @@ let package = Package(
         ],
         dependencies: [],
         targets: [
-            .target(name: "Starscream",
-                    path: "Sources")
+            .target(
+                name: "Starscream",
+                dependencies: ["CZlib"],
+                path: "Sources"),
+            .target(
+                name: "CZlib",
+                path: "CZlib",
+                linkerSettings: [ .linkedLibrary("z") ])
         ]
 )
 
